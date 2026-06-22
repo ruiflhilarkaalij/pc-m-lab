@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>世界杯 · 站点介绍 | pc-m-sjb.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9d8 0%, #f7d5b0 55%, #f7c899 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2a241d;
+        }
+
+        .page-wrap {
+            max-width: 780px;
+            width: 100%;
+        }
+
+        /* 主卡片 */
+        .card {
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            box-shadow: 0 16px 36px -8px rgba(110, 70, 30, 0.18), 0 6px 12px rgba(0,0,0,0.03);
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* hero 区 */
+        .hero {
+            text-align: center;
+            padding: 1.8rem 0.4rem 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #b2672e, #7d4b23);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #5e4b38;
+            background: rgba(255, 215, 175, 0.3);
+            display: inline-block;
+            padding: 0.25rem 1.8rem;
+            border-radius: 60px;
+            margin-top: 0.2rem;
+        }
+
+        .hero p {
+            margin-top: 1rem;
+            font-size: 1.05rem;
+            color: #3d3229;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .highlight-link {
+            display: inline-block;
+            margin-top: 1.8rem;
+            background: #d4834a;
+            color: #fff;
+            padding: 0.7rem 2.4rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1.15rem;
+            text-decoration: none;
+            box-shadow: 0 6px 14px rgba(180, 98, 30, 0.25);
+            transition: background 0.15s, transform 0.1s;
+        }
+
+        .hero .highlight-link:hover {
+            background: #b96f3a;
+            transform: translateY(-2px);
+        }
+
+        /* 分隔小装饰 */
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4e3827;
+            margin-bottom: 1rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 3px solid #f1cfb0;
+            display: inline-block;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem 1.2rem;
+            margin: 1.2rem 0 0.4rem;
+        }
+
+        .feature-item {
+            background: #fcf5ed;
+            padding: 0.8rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(110, 70, 30, 0.05);
+        }
+
+        .feature-item strong {
+            color: #7d4b23;
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #4a3c31;
+            margin: 0;
+        }
+
+        .desc-block {
+            margin: 1rem 0 0.8rem;
+        }
+
+        .desc-block p {
+            margin-bottom: 0.8rem;
+        }
+
+        .scenario-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.8rem;
+            margin: 0.6rem 0 0.4rem;
+        }
+
+        .scenario-list li {
+            background: #efe3d7;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #3e3228;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #efe2d4;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #4d3827;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #4b3d32;
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e5d3c1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2rem;
+        }
+
+        .footer-links a {
+            color: #6b4d33;
+            text-decoration: underline solid #dbb594 1.5px;
+            text-underline-offset: 4px;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .footer-links a:hover {
+            color: #b35f27;
+        }
+
+        .footnote {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #735d48;
+        }
+
+        /* 响应式 */
+        @media (max-width: 550px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 24px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .hero .highlight-link {
+                padding: 0.6rem 1.8rem;
+                font-size: 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <!-- hero 卡片 -->
+        <div class="card">
+            <div class="hero">
+                <h1>⚽ 世界杯 · 站点侧写</h1>
+                <div class="subhead">pc-m-sjb.com  ·  信息与内容入口</div>
+                <p>
+                    一个围绕<a href="https://pc-m-sjb.com" style="color:#b2672e; font-weight:600; text-decoration:underline;">世界杯</a>话题组织的站点，
+                    聚合赛事基础信息、背景梳理及讨论视角。日常更新，适合喜欢足球又不想被碎片淹没的朋友。
+                </p>
+                <a href="https://pc-m-sjb.com" class="highlight-link">世界杯</a>
+            </div>
+        </div>
+
+        <!-- 优势 / 特点区 -->
+        <div class="card">
+            <div class="section-title">🏟️ 为什么留意这里</div>
+            <div class="grid-2col">
+                <div class="feature-item">
+                    <strong>📋 内容聚焦</strong>
+                    <p>围绕世界杯历史、赛制、球队及经典赛事，不做泛体育搬运，减少无效信息。</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🧭 导航清晰</strong>
+                    <p>版块区隔合理，无论是查某届赛事还是了解规则，几步就能找到对应内容。</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🔄 适度更新</strong>
+                    <p>不追求日更数量，每篇内容均经过筛选和整理，配合赛历节点补充背景。</p>
+                </div>
+                <div class="feature-item">
+                    <strong>📱 多端适配</strong>
+                    <p>页面在手机与电脑上都能自然阅读，卡片式排版，不拥挤。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明区 + 场景 -->
+        <div class="card">
+            <div class="section-title">📌 站点说明 & 使用场景</div>
+            <div class="desc-block">
+                <p>
+                    <a href="https://pc-m-sjb.com" style="color:#b2672e; font-weight:500; text-decoration:underline;">世界杯</a> 
+                    并非官方赛事组织，而是一个由足球爱好者维护的信息聚合页。
+                    内容来源包括公开数据、赛事百科及部分深度整理，力求真实可靠，但不代权威发布。
+                </p>
+                <p>
+                    适合以下朋友偶尔逛逛：
+                </p>
+                <ul class="scenario-list">
+                    <li>📆 想快速了解某届世界杯赛制</li>
+                    <li>🏆 回顾经典决赛或冷门历史</li>
+                    <li>🌍 查看参赛队伍及举办国背景</li>
+                    <li>📖 作为闲聊时的足球知识补给</li>
+                </ul>
+                <p style="margin-top: 0.8rem;">
+                    没有弹窗广告，没有比分预测，内容取向偏资料型，阅读节奏由你自己控制。
+                </p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="card">
+            <div class="section-title">❓ 常见疑问 · 摘要</div>
+            <div class="faq-item">
+                <div class="faq-q">这个站点和官方FIFA是什么关系？</div>
+                <div class="faq-a">没有直接关系。站点内容属于球迷视角的整合与介绍，并非国际足联或其附属机构的官方页面。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">内容会时常更新吗？</div>
+                <div class="faq-a">视赛季和热点不定期补充，重大赛事前后会增加背景及回顾内容，日常保持基础信息稳定。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">可以在手机上正常浏览吗？</div>
+                <div class="faq-a">可以。全站采用响应式设计，卡片布局在手机、平板和电脑上都能获得不错的阅读体验。</div>
+            </div>
+        </div>
+
+        <!-- 底部链接卡片 -->
+        <div class="card" style="padding-bottom: 1.6rem;">
+            <div class="footer-links">
+                <a href="https://pc-m-sjb.com">世界杯</a>
+                <a href="https://pc-m-sjb.com">世界杯</a>
+                <a href="https://pc-m-sjb.com">世界杯</a>
+            </div>
+            <div class="footnote">
+                信息整理力求准确，如有疏漏欢迎指正 · 非官方足球站点
+            </div>
+        </div>
+    </div>
+</body>
+</html>
